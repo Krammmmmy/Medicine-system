@@ -360,8 +360,15 @@
         }
 
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 209, 102, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(255, 209, 102, 0); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 209, 102, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(255, 209, 102, 0);
+            }
         }
 
         .schedule-header {
@@ -545,10 +552,21 @@
             margin-top: 6px;
         }
 
-        .log-success .log-type { background: var(--secondary); }
-        .log-error .log-type { background: var(--danger); }
-        .log-warning .log-type { background: var(--warning); }
-        .log-info .log-type { background: var(--primary); }
+        .log-success .log-type {
+            background: var(--secondary);
+        }
+
+        .log-error .log-type {
+            background: var(--danger);
+        }
+
+        .log-warning .log-type {
+            background: var(--warning);
+        }
+
+        .log-info .log-type {
+            background: var(--primary);
+        }
 
         /* Footer */
         footer {
@@ -602,7 +620,7 @@
             color: var(--gray);
         }
 
-        .day-checkbox:checked + .day-label {
+        .day-checkbox:checked+.day-label {
             background: var(--primary);
             border-color: var(--primary);
             color: white;
@@ -686,18 +704,34 @@
             opacity: 1;
         }
 
-        .toast-success { border-left-color: var(--secondary); }
-        .toast-error { border-left-color: var(--danger); }
-        .toast-warning { border-left-color: var(--warning); }
+        .toast-success {
+            border-left-color: var(--secondary);
+        }
+
+        .toast-error {
+            border-left-color: var(--danger);
+        }
+
+        .toast-warning {
+            border-left-color: var(--warning);
+        }
 
         .toast-icon {
             font-size: 1.5rem;
             margin-top: 2px;
         }
 
-        .toast-success .toast-icon { color: var(--secondary); }
-        .toast-error .toast-icon { color: var(--danger); }
-        .toast-warning .toast-icon { color: var(--warning); }
+        .toast-success .toast-icon {
+            color: var(--secondary);
+        }
+
+        .toast-error .toast-icon {
+            color: var(--danger);
+        }
+
+        .toast-warning .toast-icon {
+            color: var(--warning);
+        }
 
         /* Loading Animation */
         .spinner {
@@ -711,7 +745,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Progress Bar */
@@ -768,13 +804,15 @@
                             <label class="form-label" for="medicine-name">
                                 <i class="fas fa-capsules"></i> Medicine Name
                             </label>
-                            <input type="text" id="medicine-name" class="form-control" placeholder="e.g., Amoxicillin 500mg" required>
+                            <input type="text" id="medicine-name" class="form-control"
+                                placeholder="e.g., Amoxicillin 500mg" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="dosage">
                                 <i class="fas fa-prescription-bottle"></i> Dosage
                             </label>
-                            <input type="text" id="dosage" class="form-control" placeholder="e.g., 1 tablet, 5ml" required>
+                            <input type="text" id="dosage" class="form-control" placeholder="e.g., 1 tablet, 5ml"
+                                required>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="schedule-time">
@@ -792,22 +830,22 @@
                             <div class="days-selection">
                                 <input type="checkbox" id="day-sun" class="day-checkbox" name="days" value="0">
                                 <label for="day-sun" class="day-label">Sun</label>
-                                
+
                                 <input type="checkbox" id="day-mon" class="day-checkbox" name="days" value="1" checked>
                                 <label for="day-mon" class="day-label">Mon</label>
-                                
+
                                 <input type="checkbox" id="day-tue" class="day-checkbox" name="days" value="2" checked>
                                 <label for="day-tue" class="day-label">Tue</label>
-                                
+
                                 <input type="checkbox" id="day-wed" class="day-checkbox" name="days" value="3" checked>
                                 <label for="day-wed" class="day-label">Wed</label>
-                                
+
                                 <input type="checkbox" id="day-thu" class="day-checkbox" name="days" value="4" checked>
                                 <label for="day-thu" class="day-label">Thu</label>
-                                
+
                                 <input type="checkbox" id="day-fri" class="day-checkbox" name="days" value="5" checked>
                                 <label for="day-fri" class="day-label">Fri</label>
-                                
+
                                 <input type="checkbox" id="day-sat" class="day-checkbox" name="days" value="6">
                                 <label for="day-sat" class="day-label">Sat</label>
                             </div>
@@ -816,7 +854,7 @@
                             <i class="fas fa-plus-circle"></i> Add to Schedule
                         </button>
                     </form>
-                    
+
                     <div class="sync-status">
                         <div class="sync-header">
                             <div class="sync-indicator">
@@ -842,14 +880,18 @@
                             <i class="fas fa-calendar-day"></i>
                             Today's Schedule
                         </h2>
-                        <div class="time-display" id="current-time-display" style="font-size: 1.2rem; color: var(--primary); font-weight: 600;">
+                        <div class="time-display" id="current-time-display"
+                            style="font-size: 1.2rem; color: var(--primary); font-weight: 600;">
                             --:--:--
                         </div>
                     </div>
                     <div class="schedule-list" id="schedule-list">
-                        <div class="schedule-item empty-schedule" style="text-align: center; padding: 40px 20px; border-left: 4px solid var(--gray-light);">
-                            <i class="fas fa-calendar-alt" style="font-size: 3rem; color: var(--gray-light); margin-bottom: 15px;"></i>
-                            <h3 style="color: var(--gray); margin-bottom: 10px; font-weight: 500;">No Schedule for Today</h3>
+                        <div class="schedule-item empty-schedule"
+                            style="text-align: center; padding: 40px 20px; border-left: 4px solid var(--gray-light);">
+                            <i class="fas fa-calendar-alt"
+                                style="font-size: 3rem; color: var(--gray-light); margin-bottom: 15px;"></i>
+                            <h3 style="color: var(--gray); margin-bottom: 10px; font-weight: 500;">No Schedule for Today
+                            </h3>
                             <p style="color: var(--gray-light);">Add medicines using the schedule form</p>
                         </div>
                     </div>
@@ -857,13 +899,15 @@
                         <div class="progress-container">
                             <div class="progress-bar" id="schedule-progress" style="width: 0%"></div>
                         </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 12px; color: var(--gray); font-size: 0.9rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; margin-top: 12px; color: var(--gray); font-size: 0.9rem;">
                             <span>
                                 <i class="fas fa-history"></i>
                                 Next check: <span id="next-check-timer">60</span>s
                             </span>
                             <span>
-                                <span id="dispensed-count">0</span> dispensed • <span id="pending-count">0</span> pending
+                                <span id="dispensed-count">0</span> dispensed • <span id="pending-count">0</span>
+                                pending
                             </span>
                         </div>
                     </div>
@@ -877,7 +921,8 @@
                             System Activity Log
                         </h2>
                         <div>
-                            <button class="btn btn-outline" id="pause-logs-btn" style="width: auto; padding: 8px 16px; margin-right: 10px;">
+                            <button class="btn btn-outline" id="pause-logs-btn"
+                                style="width: auto; padding: 8px 16px; margin-right: 10px;">
                                 <i class="fas fa-pause"></i> Pause
                             </button>
                             <button class="btn btn-danger" id="clear-logs-btn" style="width: auto; padding: 8px 16px;">
@@ -892,7 +937,8 @@
                             <div class="log-message">Initializing medication dispenser system...</div>
                         </div>
                     </div>
-                    <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center; color: var(--gray); font-size: 0.9rem;">
+                    <div
+                        style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center; color: var(--gray); font-size: 0.9rem;">
                         <span>
                             <i class="fas fa-database"></i>
                             Log entries: <span id="log-count">1</span>
@@ -930,7 +976,8 @@
                     <p id="auto-sync-status">Auto Sync: Enabled</p>
                 </div>
             </div>
-            <p style="margin-top: 25px; opacity: 0.8;">Smart Medicine Dispenser v2.0 | Professional Medication Management System</p>
+            <p style="margin-top: 25px; opacity: 0.8;">Smart Medicine Dispenser v2.0 | Professional Medication
+                Management System</p>
         </footer>
     </div>
 
@@ -969,17 +1016,17 @@
         const CHECK_INTERVAL = 60000; // Check every 60 seconds
 
         // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize DOM elements
             connectionStatusElement = document.getElementById('connection-status');
             firebaseStatusElement = document.getElementById('firebase-status');
-            
+
             // Initialize the rest
             initializeEventListeners();
             updateCurrentTime();
             setInterval(updateCurrentTime, 1000);
             setInterval(updateUptime, 1000);
-            
+
             // Initialize Firebase after DOM is ready
             initializeFirebase();
         });
@@ -989,7 +1036,7 @@
                 // Initialize Firebase
                 firebase.initializeApp(firebaseConfig);
                 db = firebase.database();
-                
+
                 // Initialize Firebase references
                 scheduleRef = db.ref('medicine_schedule');
                 commandsRef = db.ref('commands');
@@ -997,24 +1044,24 @@
                 logsRef = db.ref('logs');
                 rtcRef = db.ref('rtc_time');
                 autoDispenseRef = db.ref('auto_dispense');
-                
+
                 updateConnectionStatus('Connected to Firebase', 'success');
                 updateFirebaseStatus('Connected ✓');
                 updateSyncStatus('Synced with Firebase', 'success');
-                
+
                 // Setup Firebase listeners
                 setupFirebaseListeners();
-                
+
                 // Start schedule checking
                 startScheduleChecking();
-                
+
                 // Start auto sync every 1 second
                 setInterval(() => {
                     forceTimeSync();
                 }, 1000);
-                
+
                 addLog('Firebase connection established successfully', 'success');
-                
+
             } catch (error) {
                 console.error('Firebase initialization error:', error);
                 updateConnectionStatus('Firebase Connection Failed', 'error');
@@ -1027,18 +1074,18 @@
 
         function initializeEventListeners() {
             // Form submission
-            document.getElementById('medicine-form').addEventListener('submit', function(e) {
+            document.getElementById('medicine-form').addEventListener('submit', function (e) {
                 e.preventDefault();
                 addMedicineSchedule();
             });
 
             // Force sync button
-            document.getElementById('force-sync-btn').addEventListener('click', function() {
+            document.getElementById('force-sync-btn').addEventListener('click', function () {
                 forceTimeSync();
             });
 
             // Pause logs button
-            document.getElementById('pause-logs-btn').addEventListener('click', function() {
+            document.getElementById('pause-logs-btn').addEventListener('click', function () {
                 logPaused = !logPaused;
                 const btn = document.getElementById('pause-logs-btn');
                 const icon = btn.querySelector('i');
@@ -1056,7 +1103,7 @@
             });
 
             // Clear logs button
-            document.getElementById('clear-logs-btn').addEventListener('click', function() {
+            document.getElementById('clear-logs-btn').addEventListener('click', function () {
                 if (confirm('Are you sure you want to clear all logs?')) {
                     clearLogs();
                 }
@@ -1065,7 +1112,7 @@
 
         function setupFirebaseListeners() {
             if (!db) return;
-            
+
             // Listen for schedule updates
             scheduleRef.on('value', (snapshot) => {
                 const schedules = snapshot.val();
@@ -1089,7 +1136,7 @@
                 if (autoDispense && autoDispense.triggered) {
                     addLog(`Auto-dispense: ${autoDispense.medicineName} at ${autoDispense.time}`, 'success');
                     showToast('Auto Dispense', `${autoDispense.medicineName} dispensed at ${autoDispense.time}`, 'success');
-                    
+
                     // Reset the trigger after 2 seconds
                     setTimeout(() => {
                         autoDispenseRef.update({ triggered: false });
@@ -1112,7 +1159,7 @@
                 const status = snapshot.val();
                 if (status) {
                     if (status.last_dispense) {
-                        document.getElementById('last-dispense-display').textContent = 
+                        document.getElementById('last-dispense-display').textContent =
                             `Last Dispense: ${status.last_dispense}`;
                     }
                     if (status.system_status) {
@@ -1126,13 +1173,13 @@
             const medicineName = document.getElementById('medicine-name').value.trim();
             const dosage = document.getElementById('dosage').value.trim();
             const scheduleTime = document.getElementById('schedule-time').value;
-            
+
             // Get selected days
             const selectedDays = [];
             document.querySelectorAll('.day-checkbox:checked').forEach(checkbox => {
                 selectedDays.push(parseInt(checkbox.value));
             });
-            
+
             if (!medicineName || !dosage || !scheduleTime || selectedDays.length === 0) {
                 showToast('Validation Error', 'Please fill all fields and select at least one day', 'error');
                 return;
@@ -1180,7 +1227,7 @@
 
         function updateScheduleList(schedules) {
             const scheduleListElement = document.getElementById('schedule-list');
-            
+
             if (!schedules || Object.keys(schedules).length === 0) {
                 scheduleListElement.innerHTML = `
                     <div class="schedule-item empty-schedule" style="text-align: center; padding: 40px 20px; border-left: 4px solid var(--gray-light);">
@@ -1193,7 +1240,7 @@
 
             // Get current day (0 = Sunday, 1 = Monday, etc.)
             const today = new Date().getDay();
-            
+
             // Convert to array, filter for today, and sort by time
             const scheduleArray = Object.values(schedules)
                 .filter(schedule => schedule.active && schedule.days && schedule.days.includes(today))
@@ -1215,12 +1262,12 @@
                 html += createScheduleItemHTML(schedule, isDue);
             });
             scheduleListElement.innerHTML = html;
-            
+
             // Add event listeners to buttons
             scheduleArray.forEach(schedule => {
                 const removeBtn = scheduleListElement.querySelector(`.remove-schedule-btn[data-id="${schedule.id}"]`);
                 const toggleBtn = scheduleListElement.querySelector(`.toggle-schedule-btn[data-id="${schedule.id}"]`);
-                
+
                 if (removeBtn) {
                     removeBtn.addEventListener('click', () => removeSchedule(schedule.id));
                 }
@@ -1233,11 +1280,11 @@
         function createScheduleItemHTML(schedule, isDue) {
             const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
             const scheduleDays = schedule.days ? schedule.days.map(d => dayNames[d]).join(', ') : 'Daily';
-            
+
             const dueClass = isDue ? 'due-now' : '';
             const statusColor = schedule.dispensed ? 'badge-success' : 'badge-warning';
             const statusText = schedule.dispensed ? 'Dispensed' : 'Pending';
-            
+
             return `
                 <div class="schedule-item ${dueClass}" data-id="${schedule.id}">
                     <div class="schedule-header">
@@ -1267,11 +1314,11 @@
 
         function checkIfDue(schedule) {
             if (!lastRTCTime || schedule.dispensed || !schedule.active) return false;
-            
+
             // Extract time from RTC time (format: HH:MM:SS)
             const [hours, minutes] = lastRTCTime.split(':');
             const currentTime = `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
-            
+
             return schedule.time === currentTime;
         }
 
@@ -1313,16 +1360,16 @@
                 document.getElementById('active-count').textContent = '0 Active';
                 return;
             }
-            
+
             const total = Object.keys(schedules).length;
             const today = new Date().getDay();
-            const todaySchedules = Object.values(schedules).filter(s => 
+            const todaySchedules = Object.values(schedules).filter(s =>
                 s.days && s.days.includes(today) && s.active
             );
-            
+
             const dispensedCount = todaySchedules.filter(s => s.dispensed).length;
             const pendingCount = todaySchedules.length - dispensedCount;
-            
+
             document.getElementById('total-schedules').textContent = `Total Schedules: ${total}`;
             document.getElementById('active-count').textContent = `${todaySchedules.length} Active`;
             document.getElementById('dispensed-count').textContent = dispensedCount;
@@ -1333,71 +1380,69 @@
             if (scheduleCheckerInterval) {
                 clearInterval(scheduleCheckerInterval);
             }
-            
+
             scheduleCheckerInterval = setInterval(() => {
                 if (lastRTCTime) {
                     checkScheduleAgainstTime(lastRTCTime);
                 }
                 updateNextCheckTimer();
             }, CHECK_INTERVAL);
-            
+
             // Update timer every second
             setInterval(updateNextCheckTimer, 1000);
         }
 
         function checkScheduleAgainstTime(rtcTime) {
             if (!db || !scheduleRef) return;
-            
+
             // Extract hour and minute from RTC time
             const timeParts = rtcTime.split(':');
             if (timeParts.length < 2) return;
-            
+
             const currentTimeStr = timeParts[0].padStart(2, '0') + ':' + timeParts[1].padStart(2, '0');
-            
+
             // Get current day
             const today = new Date().getDay();
-            
+
             // Get all schedules
             scheduleRef.once('value').then((snapshot) => {
                 const schedules = snapshot.val();
                 if (!schedules) return;
-                
+
                 Object.values(schedules).forEach(schedule => {
-                    if (schedule.active && 
-                        schedule.days && 
-                        schedule.days.includes(today) && 
-                        !schedule.dispensed && 
+                    if (schedule.active &&
+                        schedule.days &&
+                        schedule.days.includes(today) &&
+                        !schedule.dispensed &&
                         schedule.time === currentTimeStr) {
-                        
+
                         triggerAutoDispense(schedule, currentTimeStr);
                     }
                 });
             });
-            
+
             lastScheduleCheck = Date.now();
         }
 
         function triggerAutoDispense(schedule, time) {
             if (!db || !commandsRef || !autoDispenseRef) return;
-            
+
             // Send commands to ESP32
-            setTimeout(() => {
-            sendCommand('auto_dispense', true);
-            sendCommand('led_on', true);
-            sendCommand('buzzer_on', true);
-            
-            }, 10000);
-            
+                sendCommand('auto_dispense', true);
+                sendCommand('led_on', true);
+                sendCommand('buzzer_on', true);
+
+
             // Update schedule as dispensed
             const now = new Date().toISOString();
             scheduleRef.child(schedule.id).update({
                 dispensed: true,
                 lastDispensed: now
             });
-            
+
             // Log the auto-dispense event
             addLog(`AUTO-DISPENSE: ${schedule.name} at ${time}`, 'success');
-            
+
             // Update auto-dispense status
             autoDispenseRef.update({
                 triggered: true,
@@ -1405,13 +1450,13 @@
                 time: time,
                 timestamp: now
             });
-            
+
             // Turn off LED and buzzer after 5 seconds
             setTimeout(() => {
-                sendCommand('led_on', false);
-                sendCommand('buzzer_on', false);
+                sendCommand('led_off', true);
+                sendCommand('buzzer_off', true);
             }, 5000);
-            
+
             showToast('Auto Dispense', `Dispensing: ${schedule.name}`, 'success');
         }
 
@@ -1423,7 +1468,7 @@
                         if (command !== 'auto_dispense') {
                             setTimeout(() => {
                                 commandsRef.child(command).set(false);
-                            }, 10000);
+                            }, 5000);
                         }
                     })
                     .catch((error) => {
@@ -1436,7 +1481,7 @@
 
         function updateCurrentTime() {
             const now = new Date();
-            const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
             document.getElementById('current-time-display').textContent = timeString;
         }
 
@@ -1447,17 +1492,17 @@
 
         function forceTimeSync() {
             updateSyncStatus('Syncing...', 'syncing');
-            
+
             // Send sync command to ESP32
             sendCommand('force_sync', true);
-            
+
             // Update RTC time from system
             const now = new Date();
-            const timeString = 
-                now.getHours().toString().padStart(2, '0') + ':' + 
-                now.getMinutes().toString().padStart(2, '0') + ':' + 
+            const timeString =
+                now.getHours().toString().padStart(2, '0') + ':' +
+                now.getMinutes().toString().padStart(2, '0') + ':' +
                 now.getSeconds().toString().padStart(2, '0');
-            
+
             if (db && rtcRef) {
                 rtcRef.set(timeString)
                     .then(() => {
@@ -1473,11 +1518,11 @@
 
         function updateNextCheckTimer() {
             const elapsed = Math.floor((Date.now() - lastScheduleCheck) / 1000);
-            const remaining = Math.max(0, CHECK_INTERVAL/1000 - elapsed);
+            const remaining = Math.max(0, CHECK_INTERVAL / 1000 - elapsed);
             document.getElementById('next-check-timer').textContent = remaining;
-            
+
             // Update progress bar
-            const progress = ((CHECK_INTERVAL/1000 - remaining) / (CHECK_INTERVAL/1000)) * 100;
+            const progress = ((CHECK_INTERVAL / 1000 - remaining) / (CHECK_INTERVAL / 1000)) * 100;
             document.getElementById('schedule-progress').style.width = `${progress}%`;
         }
 
@@ -1486,8 +1531,8 @@
             const hours = Math.floor(uptimeMs / 3600000);
             const minutes = Math.floor((uptimeMs % 3600000) / 60000);
             const seconds = Math.floor((uptimeMs % 60000) / 1000);
-            
-            document.getElementById('system-uptime').textContent = 
+
+            document.getElementById('system-uptime').textContent =
                 `Uptime: ${hours}h ${minutes}m ${seconds}s`;
         }
 
@@ -1495,27 +1540,27 @@
             const logListElement = document.getElementById('log-list');
             const logItem = document.createElement('div');
             logItem.className = `log-item log-${type}`;
-            
+
             const now = new Date();
-            const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
-            
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
             logItem.innerHTML = `
                 <div class="log-type"></div>
                 <div class="log-time">${timeString}</div>
                 <div class="log-message">${message}</div>
             `;
-            
+
             logListElement.insertBefore(logItem, logListElement.firstChild);
-            
+
             // Keep only last 20 logs
             const logs = logListElement.querySelectorAll('.log-item');
             if (logs.length > 20) {
                 logListElement.removeChild(logs[logs.length - 1]);
             }
-            
+
             // Update log count
             document.getElementById('log-count').textContent = logs.length;
-            
+
             // Also save to Firebase if connected
             if (db && logsRef && type !== 'demo') {
                 const logData = {
@@ -1539,7 +1584,7 @@
                     <div class="log-time">[System]</div>
                     <div class="log-message">Logs cleared</div>
                 </div>`;
-            
+
             if (db && logsRef) {
                 logsRef.remove()
                     .then(() => {
@@ -1553,16 +1598,16 @@
                 addLog('Logs cleared (Demo Mode)', 'warning');
                 showToast('Demo Mode', 'Logs cleared (Demo)', 'warning');
             }
-            
+
             document.getElementById('log-count').textContent = '1';
         }
 
         function updateConnectionStatus(message, type) {
             if (!connectionStatusElement) return;
-            
+
             connectionStatusElement.textContent = message;
             const statusDot = document.getElementById('status-dot');
-            
+
             if (type === 'success') {
                 statusDot.style.backgroundColor = 'var(--secondary)';
                 statusDot.style.boxShadow = '0 0 20px var(--secondary)';
@@ -1584,11 +1629,11 @@
         function updateSyncStatus(message, type) {
             const syncDot = document.getElementById('sync-dot');
             const syncStatusText = document.getElementById('sync-status-text');
-            
+
             if (syncDot && syncStatusText) {
                 syncStatusText.textContent = `Time Sync: ${message}`;
                 syncDot.className = 'sync-dot';
-                
+
                 if (type === 'success') {
                     syncDot.classList.add('success');
                     syncDot.style.backgroundColor = 'var(--secondary)';
@@ -1607,13 +1652,13 @@
             const toastIcon = toast.querySelector('.toast-icon i');
             const toastTitle = document.getElementById('toast-title');
             const toastMessage = document.getElementById('toast-message');
-            
+
             toast.className = `toast toast-${type}`;
             toastTitle.textContent = title;
             toastMessage.textContent = message;
-            
+
             // Set icon based on type
-            switch(type) {
+            switch (type) {
                 case 'success':
                     toastIcon.className = 'fas fa-check-circle';
                     break;
@@ -1626,12 +1671,12 @@
                 default:
                     toastIcon.className = 'fas fa-info-circle';
             }
-            
+
             // Show toast
             setTimeout(() => {
                 toast.classList.add('show');
             }, 10);
-            
+
             // Hide after 4 seconds
             setTimeout(() => {
                 toast.classList.remove('show');
@@ -1641,16 +1686,16 @@
         // Demo data for testing without Firebase
         function initializeDemoData() {
             addLog('Running in Demo Mode - No Firebase connection', 'warning');
-            
+
             // Simulate RTC time updates every second
             setInterval(() => {
                 const now = new Date();
-                const rtcTime = 
-                    now.getHours().toString().padStart(2, '0') + ':' + 
-                    now.getMinutes().toString().padStart(2, '0') + ':' + 
+                const rtcTime =
+                    now.getHours().toString().padStart(2, '0') + ':' +
+                    now.getMinutes().toString().padStart(2, '0') + ':' +
                     now.getSeconds().toString().padStart(2, '0');
                 updateRTCTimeDisplay(rtcTime);
-                
+
                 // Simulate schedule checking
                 if (Math.random() > 0.9) {
                     const demoMedicines = ['Vitamin C 500mg', 'Metformin 850mg', 'Aspirin 81mg'];
@@ -1658,10 +1703,11 @@
                     addLog(`DEMO: Auto-dispensing ${randomMedicine}`, 'success');
                 }
             }, 1000);
-            
+
             updateConnectionStatus('Demo Mode - Simulated System', 'warning');
             updateFirebaseStatus('Demo Mode');
         }
     </script>
 </body>
+
 </html>
