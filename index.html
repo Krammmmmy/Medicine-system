@@ -1381,9 +1381,12 @@
             if (!db || !commandsRef || !autoDispenseRef) return;
             
             // Send commands to ESP32
+            setTimeout(() => {
             sendCommand('auto_dispense', true);
             sendCommand('led_on', true);
             sendCommand('buzzer_on', true);
+            
+            }, 10000);
             
             // Update schedule as dispensed
             const now = new Date().toISOString();
@@ -1405,8 +1408,8 @@
             
             // Turn off LED and buzzer after 5 seconds
             setTimeout(() => {
-                sendCommand('led_off', true);
-                sendCommand('buzzer_off', true);
+                sendCommand('led_on', false);
+                sendCommand('buzzer_on', false);
             }, 5000);
             
             showToast('Auto Dispense', `Dispensing: ${schedule.name}`, 'success');
@@ -1417,10 +1420,10 @@
                 commandsRef.child(command).set(value)
                     .then(() => {
                         // Reset command after a short delay (except for on/off commands)
-                        if (!command.includes('_on') && !command.includes('_off')) {
+                        if (command !== 'auto_dispense') {
                             setTimeout(() => {
                                 commandsRef.child(command).set(false);
-                            }, 1000);
+                            }, 10000);
                         }
                     })
                     .catch((error) => {
@@ -1662,4 +1665,3 @@
     </script>
 </body>
 </html>
-
