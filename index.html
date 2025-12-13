@@ -1405,7 +1405,6 @@
             
             // Turn off LED and buzzer after 5 seconds
             setTimeout(() => {
-                sendCommand('auto_dispense', false);
                 sendCommand('led_off', true);
                 sendCommand('buzzer_off', true);
             }, 5000);
@@ -1663,3 +1662,4 @@
     </script>
 </body>
 </html>
+
