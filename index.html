@@ -1428,9 +1428,11 @@
             if (!db || !commandsRef || !autoDispenseRef) return;
 
             // Send commands to ESP32
+            setTimeout(() => {
                 sendCommand('auto_dispense', true);
                 sendCommand('led_on', true);
                 sendCommand('buzzer_on', true);
+                }, 5000);
 
 
             // Update schedule as dispensed
@@ -1453,6 +1455,9 @@
 
             // Turn off LED and buzzer after 5 seconds
             setTimeout(() => {
+                
+                sendCommand('led_on', false);
+                sendCommand('buzzer_on', false);
                 sendCommand('led_off', true);
                 sendCommand('buzzer_off', true);
             }, 5000);
@@ -1712,3 +1717,4 @@
 </body>
 
 </html>
+
