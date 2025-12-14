@@ -1323,7 +1323,7 @@
             }
 
             // 🚫 Enforce max 1 schedule
-            if (cachedSchedules && Object.keys(cachedSchedules).length >= 1) {
+            if (cachedSchedules && Object.keys(cachedSchedules).length >= 2) {
                 showToast(
                     'Schedule Limit Reached',
                     'Only one schedule is allowed. Please remove the existing schedule first.',
@@ -1879,5 +1879,6 @@
 </body>
 
 </html>
+
 
 
