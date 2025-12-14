@@ -1138,7 +1138,7 @@
         let lastRTCTime = null;
         let logPaused = false;
         let systemStartTime = Date.now();
-        const CHECK_INTERVAL = 60000; // Check every 60 seconds
+        const CHECK_INTERVAL = 1000; // Check every 60 seconds
         // Per-schedule debounce storage
         const scheduleDebounceMap = {};
         let cachedSchedules = {};
@@ -1442,11 +1442,7 @@
                     <div class="medicine-details">
                         
                         <div>
-                            <button class="btn btn-outline toggle-schedule-btn" data-id="${schedule.id}" 
-                                style="width: auto; padding: 5px 15px; margin-right: 10px;">
-                                <i class="fas ${schedule.active ? 'fa-toggle-on' : 'fa-toggle-off'}"></i>
-                                ${schedule.active ? 'Active' : 'Inactive'}
-                            </button>
+                            
                             <button class="btn btn-danger remove-schedule-btn" data-id="${schedule.id}" 
                                 style="width: auto; padding: 5px 15px;">
                                 <i class="fas fa-trash"></i> Remove
@@ -1599,10 +1595,13 @@
         function triggerAutoDispense(schedule, time) {
             if (!db || !commandsRef || !autoDispenseRef) return;
 
-            // Send commands to ESP32
+            console.log(`Triggering auto-dispense for ${schedule.name} at ${time}`);
+
+            // Send commands with proper timing
             sendCommand('auto_dispense', true);
-            sendCommand('led_on', true);
-            sendCommand('buzzer_on', true);
+
+            // Don't send LED/Buzzer commands here - let ESP32 handle them
+            // These are now handled in the dispenseMedicine() function
 
             // Update schedule as dispensed
             const now = new Date().toISOString();
@@ -1621,17 +1620,15 @@
                 medicineName: schedule.name,
                 time: time,
                 timestamp: now
-            });
-            // Turn off LED and buzzer after 5 seconds
-            setTimeout(() => {
+            }).then(() => {
+                // Reset after 2 seconds
                 setTimeout(() => {
-                    sendCommand('led_off', true);
-                    sendCommand('buzzer_off', true);
-                }, 5000);
-            }, 10000);
+                    autoDispenseRef.update({ triggered: false });
+                }, 2000);
+            });
+
             showToast('Auto Dispense', `Dispensing: ${schedule.name}`, 'success');
         }
-
         function sendCommand(command, value) {
             if (db && commandsRef) {
                 commandsRef.child(command).set(value)
